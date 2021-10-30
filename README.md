@@ -1,2 +1,2 @@
-# learning-path
-Successes and failures of my learning journey
+# Recipes website built with html and css only  
+My first project
