@@ -1,7 +1,7 @@
 # Recipes website built with html and css only  
 ## What is this?    
 
-It's the first project I worked on.    
+It's the first project I worked on. I followed a Freecodecamp tutorial, but I made it my own.     
 
 ## Which language did I use?    
 
