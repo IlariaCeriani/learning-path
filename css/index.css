@@ -240,7 +240,8 @@ li.contact-btn {
     align-items: center;
     background-color: rgb(22, 21, 21);
     background-image: url(../pr-images/banner2.jpg);
-    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-blend-mode: soft-light;
 }
 .h1-div {
@@ -258,6 +259,7 @@ li.contact-btn {
 main {
     grid-area: main;
     max-width: 100%;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -313,11 +315,16 @@ main * img {
     background-color: hsl(0, 82%, 91%);
     padding-left: 1.5em;
 }
-.tag-link {
+.tag-btn {
     color: black;
+    background-color: transparent;
+    border: none;
+    font-family: var(--font-p);
+    font-size: 1rem;
 }
-.tag-link:hover {
+.tag-btn:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 @media screen and (min-width: 1000px) {
     .side-tags {
