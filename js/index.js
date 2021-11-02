@@ -1,3 +1,20 @@
+//toggle menu btn
+const menuBtn = document.getElementById('menu-toggle-btn');
+const nav = document.getElementById('nav');
+
+
+menuBtn.addEventListener('click', function (){
+    nav.classList.toggle('nav');
+})
+
+document.addEventListener('click', function(e) {
+    if (!menuBtn.contains(e.target) && nav.classList.contains('nav')) {
+        nav.classList.remove('nav');
+    }
+    
+})
+
+
 // tags and recipes 
 
 const recipes = [
