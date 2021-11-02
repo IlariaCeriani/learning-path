@@ -1,9 +1,9 @@
-# Recipes website built with html and css only  
+# Recipes website  
 ## What is this?    
 
-It's the first project I worked on. I followed a Freecodecamp tutorial, but I made it my own.     
+A work in progress recipe website. I took inspiration from [a freeCodeCamp tutorial](https://youtu.be/-8LTPIJBGwQ) but I gave it a more personal interpretation. My main objective is to build a simple but very user-friendly website.     
 
 ## Which language did I use?    
 
-Only HTML and CSS were used, as I did not know JS yet. No form validation is present, it's purely aesthetic, with little to no functionality.
+At first it was only HTML and CSS. Now I'm gradually adding functionality with JS as I learn it.
 
