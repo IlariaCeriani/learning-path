@@ -1,3 +1,5 @@
+// tags and recipes 
+
 const recipes = [
     {
         name: "Roasted Lamb with Garlic",
@@ -88,3 +90,24 @@ function recipeItmCreator(item) {
     recipeItmContainer = recipeItmContainer.join('');
     recipeSection.innerHTML = recipeItmContainer;
 }
+
+
+//go up arrow
+
+const upBtn = document.getElementById('go-up-btn');
+
+window.addEventListener('DOMContentLoaded', function() {
+    upBtn.style.display = 'none';
+})
+window.onscroll = function(){
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        upBtn.style.display = 'block';
+    } else {
+        upBtn.style.display = 'none';
+    }
+};
+
+upBtn.addEventListener('click', function() {
+   document.body.scrollTop = 0;  //for Safari
+   document.documentElement.scrollTop = 0;  //for chrome, firefox, IE, Opera
+})
