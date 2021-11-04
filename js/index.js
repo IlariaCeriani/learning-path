@@ -64,6 +64,9 @@ window.addEventListener('DOMContentLoaded', function () {
         
     }, ["All"]);
 
+    //sort an array of strings alphabetically
+    btnContainer.sort();
+
     const tagBtns = btnContainer.map(function(item) {
         return `<li class="tag-list-itm"><button class="tag-btn" data-id="${item}">${item}</button></li>`
     }).join('');
@@ -127,4 +130,11 @@ window.onscroll = function(){
 upBtn.addEventListener('click', function() {
    document.body.scrollTop = 0;  //for Safari
    document.documentElement.scrollTop = 0;  //for chrome, firefox, IE, Opera
+})
+
+//scroll right
+const main = document.getElementById('recipe-section');
+
+main.addEventListener('scroll', (e) => {
+    e.currentTarget.scrollLeft;
 })

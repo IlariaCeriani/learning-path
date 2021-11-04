@@ -106,25 +106,7 @@ nav {
     transform-origin: top;
     transition: transform 200ms ease-in-out; 
 }
-/* .nav-link {
-    opacity: 1;
-    transition: opacity ease-in 100ms;
-}
-.show-nav-link {
-    opacity: 0;
-    transition: opacity ease-out 300ms;
-} */
 
-/* .toggle-menu-input:checked ~ nav {
-    transform: scale(1,1);
-} */
-/* nav * a {
-    opacity: 0;
-    
-} */
-/* .toggle-menu-input:checked ~ nav * a {
-    
-} */
 .nav-list {
     padding-left: 0;
     margin: 0;
@@ -133,9 +115,7 @@ nav {
 nav * a:hover {
     color: var(--color-70);
 }
-/* .toggle-menu-input {
-    display: none;
-} */
+
 #menu-toggle-btn {
     align-self: center;
     margin-right: 2em;
@@ -154,40 +134,7 @@ nav * a:hover {
     cursor: pointer;
     background-color: var(--color-20);
 }
-/* .exterior {
-    border: 1px solid whitesmoke;
-    border-radius: 15%;
-    width: 30px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.exterior:hover {
-    cursor: pointer;
-}
-.interior {
-    position: relative;
-}
-.interior,
-.interior::before,
-.interior::after {
-    width: 20px;
-    height: 2px;
-    background-color: whitesmoke;
-}
-.interior::before,
-.interior::after {
-    position: absolute;
-    content: "";
-    left: 0;
-}
-.interior::before {
-    top: -5px;
-}
-.interior::after {
-    bottom: -5px;
-} */
+
 li.contact-btn {
     display: none;
 }
@@ -204,7 +151,7 @@ li.contact-btn {
     header, nav, .nav-list {
         display: flex;
     }
-    .toggle-menu-label {
+    #menu-toggle-btn {
         display: none;
     }
     
@@ -290,16 +237,25 @@ li.contact-btn {
 main {
     grid-area: main;
     max-width: 100%;
-    min-height: 40vh;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    /* align-items: stretch; */
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    overflow-x: scroll;
+    margin-bottom: 4em;
 }
+
+   main::-webkit-scrollbar {
+    width: 0;
+   }
 .recipe-itm {
-    flex-basis: 30vh;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    width: 70%;
+    margin-top: 4em;
+    margin-bottom: 1em;
+    margin-right: 4em;
 }
 .recipe-itm a {
     color: black;
@@ -318,9 +274,16 @@ main * img {
     main {
         flex-direction: row;
         flex-wrap: wrap;
+        max-height: none;
+        min-height: 40vh;
+        justify-content: space-around;
+        align-items: stretch;
+        overflow: visible;
     }
     .recipe-itm {
         flex-basis: 48%;
+        margin-block: 2em;
+        margin-right: 0;
     }
 }
 
@@ -328,13 +291,20 @@ main * img {
     main {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
+        max-height: none;
+        min-height: 40vh;
+        align-items: stretch;
+        overflow: visible;
     }
     .recipe-itm {
-        flex-basis: 33%;
+        flex-basis: 40%;
+        margin-block: 2em;
+        margin-right: 1em;
     }
     main * img {
        width: 100%;
+       min-height: 200px;
        height: 200px;
        object-fit: cover;
     }
