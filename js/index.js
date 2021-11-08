@@ -90,9 +90,27 @@ window.addEventListener('DOMContentLoaded', function () {
             recipeItmCreator(recipeTag);
         }
         
+        })
     })
-})
 
+    // LINK COPIED WITH TIMEOUT FUNCTION
+ 
+    const shareBtns = document.querySelectorAll('.share-btn');
+    const copiedMsgs = document.querySelectorAll('.copied-msg');
+    
+   shareBtns.forEach ((btn) => {
+       btn.addEventListener('click', (e) => {
+           copiedMsgs.forEach((item) => {
+               if (item.parentElement.contains(e.target)) {
+                   item.classList.add('show-msg');
+                   setTimeout(function() {
+                       item.classList.remove('show-msg');
+                   }, 1000);
+               }
+           })
+       })
+   })
+    
 
 })
 
@@ -101,11 +119,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function recipeItmCreator(item) {
     let recipeItmContainer = item.map(function(item) {
-        return ` <section class="recipe-itm">
+        return ` <article class="recipe-itm">
         <a href="${item.link}"><img src="${item.img}" alt="${item.name}">
         <h4>${item.name}</h4>
         <p>${item.info}</p></a>
-        </section>`
+        <button class="share-btn"><i class="far fa-share-square share-icon"></i><span class="copied-msg">Link copied!</span></button>
+        </article>`
     })
     recipeItmContainer = recipeItmContainer.join('');
     recipeSection.innerHTML = recipeItmContainer;
