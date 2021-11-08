@@ -1,4 +1,5 @@
-//toggle menu btn
+// ************************************navbar toggle menu btn
+
 const menuBtn = document.getElementById('menu-toggle-btn');
 const nav = document.getElementById('nav');
 
@@ -15,7 +16,7 @@ document.addEventListener('click', function(e) {
 })
 
 
-// tags and recipes 
+// *****************************************tags and recipes 
 
 const recipes = [
     {
@@ -64,7 +65,7 @@ window.addEventListener('DOMContentLoaded', function () {
         
     }, ["All"]);
 
-    //sort an array of strings alphabetically
+    //************sort an array of strings alphabetically
     btnContainer.sort();
 
     const tagBtns = btnContainer.map(function(item) {
@@ -93,7 +94,7 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-    // LINK COPIED WITH TIMEOUT FUNCTION
+    // ***********************LINK COPIED TEXT APPEARING WITH TIMEOUT FUNCTION
  
     const shareBtns = document.querySelectorAll('.share-btn');
     const copiedMsgs = document.querySelectorAll('.copied-msg');
@@ -131,7 +132,7 @@ function recipeItmCreator(item) {
 }
 
 
-//go up arrow
+// *********************************go up arrow
 
 const upBtn = document.getElementById('go-up-btn');
 
@@ -151,7 +152,8 @@ upBtn.addEventListener('click', function() {
    document.documentElement.scrollTop = 0;  //for chrome, firefox, IE, Opera
 })
 
-//scroll right
+// **********************************scroll right
+
 const main = document.getElementById('recipe-section');
 
 main.addEventListener('scroll', (e) => {
