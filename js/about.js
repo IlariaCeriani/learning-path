@@ -99,33 +99,28 @@ const recipes = [
 
 window.addEventListener('DOMContentLoaded',function() {
     let recipeItmCreator = (item) => {
-    // let recipeItmContainer = item.map((item) => {
-    //     return ` <article class="recipe-itm">
-    //     <a href="${item.link}"><img src="${item.img}" alt="${item.name}">
-    //     <h4>${item.name}</h4>
-    //     <p>${item.info}</p></a>
-    //     </article>`
-    // }).join('');
-     
     
-    //  recipeSection.innerHTML = recipeItmContainer;
-    let recipeItmContainer = [];
-    let randomNum = () => {
+     let recipeItmContainer = [];
+     let randomNum = () => {
         let randomItm = item[Math.floor(Math.random() * item.length)]
         return randomItm;
-    }
+     }
     
-    for (let x = 0; x< 3; x++) {
-        recipeItmContainer.push(randomNum());
-    }
+     do {
+        let randomItm = randomNum();
+        if (!recipeItmContainer.includes(randomItm)) {
+            recipeItmContainer.push(randomItm);
+        } 
         
-    recipeItmContainer = recipeItmContainer.map((item) => {
+     } while (recipeItmContainer.length<3);
+        
+     recipeItmContainer = recipeItmContainer.map((item) => {
         return ` <article class="recipe-itm">
         <a href="${item.link}"><img src="${item.img}" alt="${item.name}">
         <h4>${item.name}</h4>
         <p>${item.info}</p></a>
         </article>`
-    }).join('');
+     }).join('');
 
       recipeSection.innerHTML = recipeItmContainer;
     }
