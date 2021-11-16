@@ -46,6 +46,27 @@ const recipes = [
         link: "",
         info: `Prep: 30 min | Cook: 20min`,
         tags: "Pizza"
+    },
+    {
+        name: "Fiorentina",
+        img: "pr-images/fiorentina.jpg",
+        link: "",
+        info: `Prep: 10 min | Cook: 5min`,
+        tags: "Meat"
+    },
+    {
+        name: "Risotto with Saffron",
+        img: "pr-images/risotto-zaf.jpg",
+        link: "",
+        info: `Prep: 5 min | Cook: 20min`,
+        tags: "Rice"
+    },
+    {
+        name: "Pasta Amatriciana",
+        img: "pr-images/pasta-ama.jpg",
+        link: "",
+        info: `Prep: 20 min | Cook: 15min`,
+        tags: "Pasta"
     }
 
 ];
@@ -94,23 +115,38 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-    // ***********************LINK COPIED TEXT APPEARING WITH TIMEOUT FUNCTION
+//     // ***********************LINK COPIED TEXT APPEARING WITH TIMEOUT FUNCTION
  
-    const shareBtns = document.querySelectorAll('.share-btn');
-    const copiedMsgs = document.querySelectorAll('.copied-msg');
+//     const shareBtns = document.querySelectorAll('.share-btn');
+//     const copiedMsgs = document.querySelectorAll('.copied-msg');
     
-   shareBtns.forEach ((btn) => {
-       btn.addEventListener('click', (e) => {
-           copiedMsgs.forEach((item) => {
-               if (item.parentElement.contains(e.target)) {
-                   item.classList.add('show-msg');
-                   setTimeout(function() {
-                       item.classList.remove('show-msg');
-                   }, 1000);
-               }
-           })
-       })
-   })
+// //    shareBtns.forEach ((btn) => {
+// //        btn.addEventListener('click', (e) => {
+// //            copiedMsgs.forEach((item) => {
+// //                if (item.parentElement.contains(e.target)) {
+// //                    item.classList.add('show-msg');
+// //                    setTimeout(function() {
+// //                        item.classList.remove('show-msg');
+// //                    }, 500);
+// //                }
+// //            })
+// //        })
+// //    })
+
+//     recipeSection.addEventListener('click', () => {
+//         shareBtns.forEach ((btn) => {
+//             btn.addEventListener('click', (e) => {
+//                 copiedMsgs.forEach((item) => {
+//                     if (item.parentElement.contains(e.target)) {
+//                         item.classList.add('show-msg');
+//                         setTimeout(function() {
+//                             item.classList.remove('show-msg');
+//                         }, 500);
+//                     }
+//                 })
+//             })
+//         })
+//     })
     
 
 })
@@ -124,7 +160,6 @@ function recipeItmCreator(item) {
         <a href="${item.link}"><img src="${item.img}" alt="${item.name}">
         <h4>${item.name}</h4>
         <p>${item.info}</p></a>
-        <button class="share-btn"><i class="far fa-share-square share-icon"></i><span class="copied-msg">Link copied!</span></button>
         </article>`
     })
     recipeItmContainer = recipeItmContainer.join('');
@@ -159,3 +194,4 @@ const main = document.getElementById('recipe-section');
 main.addEventListener('scroll', (e) => {
     e.currentTarget.scrollLeft;
 })
+

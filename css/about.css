@@ -1,4 +1,7 @@
 /*general*/
+html {
+    scroll-behavior: smooth;
+}
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -14,7 +17,7 @@
 }
 body {
     margin: 0;
-    width: 100vw;
+    width: 100%;
     background-color: whitesmoke;
     font-family: var(--font-p);
     display: grid;
@@ -22,6 +25,7 @@ body {
     "header header header" 15vh
     "banner-img banner-img banner-img" 20vh
     "banner-txt banner-txt banner-txt" auto
+    "h2 h2 h2" auto
     ". main ." auto
     "footer footer footer" 15vh / 1em 1fr 1em;
 }
@@ -32,6 +36,7 @@ body {
       "header header header" 15vh
       "banner-img banner-img banner-img" 30vh
       "banner-txt banner-txt banner-txt" auto
+      "h2 h2 h2" auto
       ". main ." auto
       "footer footer footer" 15vh / 1.5em 1fr 1.5em;
     }
@@ -43,6 +48,7 @@ body {
         grid-template:
         "header header header header" 20vh
         ". banner-txt banner-img ." 60vh
+        "h2 h2 h2 h2" auto
         ". main main ." auto
         "footer footer footer footer" 15vh / 80px 50% 1fr 80px;
     }
@@ -73,6 +79,11 @@ header h2 {
     position: relative;
     top: 35%;
 }
+.center-div {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 .logo-link, .nav-link, .btn-link {
     color:whitesmoke;
 }
@@ -92,20 +103,15 @@ nav {
     background-color: var(--color-40);
     z-index: 2;
     transform: scale(1,0);
-    transition: transform 200ms ease-in-out; 
+    transition: transform 200ms ease-in-out;
     transform-origin: top;
 }
-.toggle-menu-input:checked ~ nav {
+.nav {
     transform: scale(1,1);
+    transform-origin: top;
+    transition: transform 200ms ease-in-out; 
 }
-nav * a {
-    opacity: 0;
-    transition: opacity ease-out 100ms;
-}
-.toggle-menu-input:checked ~ nav * a {
-    opacity: 1;
-    transition: opacity ease-in 200ms;
-}
+
 .nav-list {
     padding-left: 0;
     margin: 0;
@@ -114,51 +120,26 @@ nav * a {
 nav * a:hover {
     color: var(--color-70);
 }
-.toggle-menu-input {
-    display: none;
-}
-.toggle-menu-label {
-    position: absolute;
-    right: 2em;
-    top: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.exterior {
+
+#menu-toggle-btn {
+    align-self: center;
+    margin-right: 2em;
+    background-color: transparent;
     border: 1px solid whitesmoke;
-    border-radius: 15%;
-    width: 30px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px;
+    padding-block: .3em;
+    padding-inline: .7em;
+    transition: background-color 200ms ease-in-out;
 }
-.exterior:hover {
+.menu-toggle-icon {
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+#menu-toggle-btn:hover {
     cursor: pointer;
+    background-color: var(--color-20);
 }
-.interior {
-    position: relative;
-}
-.interior,
-.interior::before,
-.interior::after {
-    width: 20px;
-    height: 2px;
-    background-color: whitesmoke;
-}
-.interior::before,
-.interior::after {
-    position: absolute;
-    content: "";
-    left: 0;
-}
-.interior::before {
-    top: -5px;
-}
-.interior::after {
-    bottom: -5px;
-}
+
 li.contact-btn {
     display: none;
 }
@@ -175,7 +156,7 @@ li.contact-btn {
     header, nav, .nav-list {
         display: flex;
     }
-    .toggle-menu-label {
+    #menu-toggle-btn {
         display: none;
     }
     
@@ -248,7 +229,7 @@ li.contact-btn {
     object-fit: cover;
     display: block;
 }
-button {
+.contact-us {
     background-color: var(--color-40);
     border: none;
     padding: .8em;
@@ -280,19 +261,32 @@ button {
 main {
     grid-area: main;
     max-width: 100%;
+    max-height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    /* align-items: stretch; */
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    overflow-x: scroll;
+    margin-bottom: 1em;
+    margin-top: 0;
 }
+main::-webkit-scrollbar {
+    width: 0;
+   }
 .recipe-itm {
-    flex-basis: 30vh;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    width: 70%;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-right: 4em;
+    position: relative;
 }
 .main-h2 {
-    flex-basis: 100%;
+    grid-area: h2;
     text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .recipe-itm a {
     color: black;
@@ -311,9 +305,16 @@ main * img {
     main {
         flex-direction: row;
         flex-wrap: wrap;
+        max-height: none;
+        min-height: 40vh;
+        justify-content: space-around;
+        align-items: stretch;
+        overflow: visible;
     }
     .recipe-itm {
         flex-basis: 48%;
+        margin-block: 2em;
+        margin-right: 0;
     }
 }
 
@@ -321,17 +322,40 @@ main * img {
     main {
         margin-top: 2em;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
     }
     .recipe-itm {
-        flex-basis: 30%;
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+    .recipe-itm + .recipe-itm {
+        margin-left: 3em;
     }
     main * img {
        width: 100%;
        height: 200px;
        object-fit: cover;
     }
+}
+
+
+
+/***************go up icon*********************/
+#go-up-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+}
+.go-up-icon {
+    font-size: 2rem;
+    opacity: .7;
+}
+.go-up-icon:hover {
+   cursor: pointer;
+   opacity: 1;
 }
 
 

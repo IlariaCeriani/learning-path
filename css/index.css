@@ -272,43 +272,7 @@ main * img {
     object-fit: cover;
     border-radius: 5%;
 }
-.share-btn {
-    position: absolute;
-    top: -.5em;
-    right: -.5em;
-    padding: .5em;
-    border-radius: 50%;
-    background-color: var(--color-40);
-    border: none;
-    transition: background-color 200ms ease-in-out;
-}
-.share-btn:hover {
-    background-color: var(--color-20);
-    cursor: pointer;
-}
-.share-icon {
-    display: block;
-    font-size: 1.2rem;
-    color: whitesmoke;
-    font-weight: lighter;
-    position: relative;
-}
-.copied-msg {
-    position: absolute;
-    width: 8em;
-    background-color: var(--color-80);
-    color: black;
-    border: 1px solid black;
-    left: -2.5em;
-    bottom: -1em;
-    font-size: .7em;
-    border-radius: 5px;
-    padding: .3em;
-    opacity: 0;
-}
-.show-msg {
-    opacity: .8;
-}
+
 @media screen and (min-width: 600px) and (max-width: 999px) {
     main {
         flex-direction: row;
@@ -330,7 +294,7 @@ main * img {
     main {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         max-height: none;
         min-height: 40vh;
         align-items: stretch;
@@ -340,6 +304,7 @@ main * img {
         flex-basis: 40%;
         margin-block: 2em;
         margin-right: 1em;
+        margin-left: 2em;
     }
     main * img {
        width: 100%;
