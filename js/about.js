@@ -107,12 +107,12 @@ window.addEventListener('DOMContentLoaded',function() {
      }
     
      do {
-        let randomItm = randomNum();
-        if (!recipeItmContainer.includes(randomItm)) {
+         let randomItm = randomNum();
+         if (!recipeItmContainer.includes(randomItm)) {
             recipeItmContainer.push(randomItm);
-        } 
+         } 
         
-     } while (recipeItmContainer.length<3);
+        } while (recipeItmContainer.length<3);
         
      recipeItmContainer = recipeItmContainer.map((item) => {
         return ` <article class="recipe-itm">
