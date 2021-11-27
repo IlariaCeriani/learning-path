@@ -5,5 +5,5 @@ A work in progress recipe website. I took inspiration from [a freeCodeCamp tutor
 
 ## Which language did I use?    
 
-At first it was only HTML and CSS. Now I'm gradually adding functionality with JS as I learn it..
+At first it was only HTML and CSS. Now I'm gradually adding functionality with JS as I learn it.
 
